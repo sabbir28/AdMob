@@ -36,31 +36,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initializeCustomAds() {
-        MobileAds.initialize(this, initializationStatus -> {
-            AdLoader adLoader = new AdLoader.Builder(this, "ca-app-pub-3940256099942544/2247696110")
-                    .forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
-                        @Override
-                        public void onNativeAdLoaded(NativeAd nativeAd) {
-                            NativeTemplateStyle styles = new NativeTemplateStyle.Builder()
-                                    .withMainBackgroundColor(new ColorDrawable(Color.parseColor("#FF0000")))
-                                    .build();
-                            if (templateView != null) {
-                                templateView.setStyles(styles);
-                                templateView.setNativeAd(nativeAd);
-                            } else {
-                                Log.e(TAG, "TemplateView is null when setting native ad.");
-                            }
-                        }
-                    })
-                    .withAdListener(new com.google.android.gms.ads.AdListener() {
-                        public void onAdFailedToLoad(AdError adError) {
-                            Log.e(TAG, "Failed to load ad: " + adError.getMessage());
-                        }
-                    })
-                    .build();
+        MobileAds.initialize(this);
+        AdLoader adLoader = new AdLoader.Builder(this, "ca-app-pub-3940256099942544/2247696110")
+                .forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
+                    @Override
+                    public void onNativeAdLoaded(NativeAd nativeAd) {
+                        ColorDrawable white;
+                        NativeTemplateStyle styles = new
+                                NativeTemplateStyle.Builder().withMainBackgroundColor(new ColorDrawable(Color.WHITE)).build();
+                        TemplateView template = findViewById(R.id.my_template);
+                        template.setStyles(styles);
+                        template.setNativeAd(nativeAd);
+                    }
+                })
+                .build();
 
-            adLoader.loadAd(new AdRequest.Builder().build());
-        });
+        adLoader.loadAd(new AdRequest.Builder().build());
+
     }
 
 }
