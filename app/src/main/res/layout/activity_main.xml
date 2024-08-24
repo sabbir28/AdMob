@@ -8,7 +8,7 @@
 
     <com.google.android.ads.nativetemplates.TemplateView
         android:id="@+id/my_template"
-        app:gnt_template_type="@layout/gnt_small_template_view"
+        app:gnt_template_type="@layout/gnt_medium_template_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
