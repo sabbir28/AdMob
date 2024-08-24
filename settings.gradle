@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "ADS Example"
 include ':app'
 
+include ':nativetemplates'
