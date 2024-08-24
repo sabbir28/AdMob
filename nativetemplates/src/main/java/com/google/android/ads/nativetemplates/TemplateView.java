@@ -14,6 +14,7 @@
 
 package com.google.android.ads.nativetemplates;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
@@ -68,6 +69,7 @@ public class TemplateView extends FrameLayout {
     initView(context, attrs);
   }
 
+  @SuppressLint("NewApi")
   public TemplateView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
     super(context, attrs, defStyleAttr, defStyleRes);
     initView(context, attrs);
